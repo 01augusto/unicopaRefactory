@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Image, ImageBackground } from 'react-native';
 import GameCard from './components/GameCard';
 import dados from './assets/dados.json';
 import { SectionList } from 'react-native-web';
+import { formatarData } from './utils';
 
 export default function App() {
 
@@ -57,7 +58,7 @@ console.log(jogosTratados);
 
         <text style={styles.data
           
-        }>{section.title}</text>
+        }>{formatarData(section.title)}</text>
         {
         section.data.map(jogo => (
           <GameCard key={jogo.id} game={jogo} />
