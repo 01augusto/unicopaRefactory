@@ -1,17 +1,10 @@
 import { Image, StyleSheet, Text, View } from "react-native";
+import { getLogoSelecao } from '../selecoes'; 
 
 export default function GameCard({ game }) {
+  
 
-    const flags = {
-        MEX: require("../assets/jogos/mexico.png"),
-        RSA: require("../assets/jogos/south africa.png"),
-        KOR: require("../assets/jogos/south korea.png"),
-        CZE: require("../assets/jogos/czech republic.png"),
-        
-    }
-  
-  
-    return (
+  return (
     <View style={styles.jogo}>
       <Text style={styles.grupo}>
         GRUPO {game.grupo} {game.confronto}
@@ -21,7 +14,7 @@ export default function GameCard({ game }) {
         <View style={styles.time}>
           <Image
             style={styles.bandeira}
-            source={flags[game.sigla_casa]}
+            source={getLogoSelecao(game.sigla_casa)} 
           />
           <Text style={styles.sigla}>{game.sigla_casa}</Text>
         </View>
@@ -35,7 +28,7 @@ export default function GameCard({ game }) {
           <Text style={styles.sigla}>{game.sigla_fora}</Text>
           <Image
             style={styles.bandeira}
-            source={flags[game.sigla_fora]}
+            source={getLogoSelecao(game.sigla_fora)}
           />
         </View>
       </View>
@@ -49,8 +42,8 @@ export default function GameCard({ game }) {
     </View>
   );
 }
+
 const styles = StyleSheet.create({
- 
   jogo: {
     marginBottom: 20,
     borderBottomWidth: 1,
